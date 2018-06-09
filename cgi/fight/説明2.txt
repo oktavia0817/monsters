@@ -1,0 +1,110 @@
+#========#
+#  戦闘  #
+#========#
+
+sub aite {
+
+require './cgi/aite.cgi';
+
+}
+
+sub check{
+
+$monsuu = $FORM{'monsuu'};
+$inname = $FORM{'name'};
+$inpass = $FORM{'password'};
+$Aimg1  = $FORM{'Aimg1'};
+$Aimg2  = $FORM{'Aimg2'};
+$Aimg3  = $FORM{'Aimg3'};
+$inkai  = $FORM{'kai'};
+$Iii    = $FORM{'rank'};
+$Ssu    = $FORM{'Ssu'};
+$hit1   = $FORM{'hit1'};
+$teki1  = $FORM{'teki1'};
+$toku1  = $FORM{'toku1'};
+$nakama1= $FORM{'nakama1'};
+$ktoku1 = $FORM{'ktoku1'};
+$hit2   = $FORM{'hit2'};
+$teki2  = $FORM{'teki2'};
+$toku2  = $FORM{'toku2'};
+$nakama2= $FORM{'nakama2'};
+$ktoku2 = $FORM{'ktoku2'};
+$hit3   = $FORM{'hit3'};
+$teki3  = $FORM{'teki3'};
+$toku3  = $FORM{'toku3'};
+$nakama3= $FORM{'nakama3'};
+$ktoku3 = $FORM{'ktoku3'};
+
+require './dat/data.cgi';
+require './cgi/fight/fight1.cgi';
+}
+
+#######################################
+
+sub check2{
+
+$monsuu = $FORM{'monsuu'};
+$inname = $FORM{'name'};
+$inpass = $FORM{'password'};
+$Aimg1  = $FORM{'Aimg1'};
+$inkai  = $FORM{'kai'};
+$Iii    = $FORM{'rank'};
+$Ssu    = $FORM{'Ssu'};
+$hit1   = $FORM{'hit1'};
+$teki1  = $FORM{'teki1'};
+$toku1  = $FORM{'toku1'};
+$nakama1= $FORM{'nakama1'};
+$ktoku1 = $FORM{'ktoku1'};
+
+require './dat/data.cgi';
+require './cgi/fight/fight10.cgi';
+
+}
+
+sub check3{
+
+$monsuu = $FORM{'monsuu'};
+$inname = $FORM{'name'};
+$inpass = $FORM{'password'};
+$Aimg1  = $FORM{'Aimg1'};
+$inkai  = $FORM{'kai'};
+$Iii    = $FORM{'rank'};
+$Ssu    = $FORM{'Ssu'};
+$hit1   = $FORM{'hit1'};
+$teki1  = $FORM{'teki1'};
+$toku1  = $FORM{'toku1'};
+$nakama1= $FORM{'nakama1'};
+$ktoku1 = $FORM{'ktoku1'};
+
+require './dat/data.cgi';
+require './cgi/fight/fight11.cgi';
+
+}
+
+#######################################
+
+sub fight1 {
+require './dat/data.cgi';
+require './cgi/fight/fight1.cgi';
+}
+sub fight10 {
+require './dat/data.cgi';
+require './cgi/fight/fight10.cgi';
+}
+sub fight11 {
+require './dat/data.cgi';
+require './cgi/fight/fight11.cgi';
+}
+sub MGET {
+require './cgi/mget.cgi';
+}
+sub KGET {
+require './cgi/kget.cgi';
+}
+sub Mbye {
+require './cgi/mbye.cgi';
+}
+
+#=============#
+#  LOGIN画面  #
+#=============#

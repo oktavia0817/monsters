@@ -1,0 +1,23 @@
+sub hai {
+	for($i=1;$i<=10;$i++){
+		if($Klev[$i] >= $haigoulevel){
+			print "<option value=$i >0$i: $itemlist[${P.$i}] $seibetu[$Ksex[$i]] LV-$Klev[$i] 配合$Khai[$i]回</OPTION>\n";
+		}
+	}
+}
+
+sub hai2 {
+	for($i=1;$i<=10;$i++){
+		if($Klev[$i] == 1){
+			$ryoukin = $Khai[$i] * 100;
+			if($ryoukin >= 99999){$ryoukin = 99999;}
+			print "<option value=$i >$itemlist[${P.$i}] $ryoukin ゴールド</OPTION>"
+		}
+	}
+}
+
+$inname = $FORM{'name'};
+$inpass = $FORM{'password'};
+$bname = $FORM{'name'};
+$bpass = $FORM{'password'};
+$type = $FORM{'type'};

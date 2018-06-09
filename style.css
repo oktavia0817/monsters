@@ -1,0 +1,33 @@
+A:Link{
+       color:#0000aa;
+       text-decoration:none;
+       }
+
+A:Visited{
+          color:#0000aa;
+          text-decoration:none;
+          }
+
+A:hover{
+        color:crimson;
+        text-decoration:none;
+        }
+
+a.menu{
+       color: #000000;
+       text-decoration: none;
+       text-align: center;
+       display: block
+       }
+
+a:active.menu{color: #f90000;}
+
+#u1,#u2,#u3,#u4,#u5,#u6,#u7,#u8{display:none;}
+
+.kado  { background-color:transparent; }
+.kado1 { margin: 0 5px;height:1px;overflow: hidden; background-color:#000000; }
+.kado2 { margin: 0 3px;height:1px;overflow: hidden; background-color:#000000; }
+.kado3 { margin: 0 2px;height:1px;overflow: hidden; background-color:#000000; }
+.kado4 { margin: 0 1px;height:2px;overflow: hidden; background-color:#000000; }
+.kado5 { padding:15px; background-color:#ffffff; border-style:solid; border-color:black;}
+
