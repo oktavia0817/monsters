@@ -515,9 +515,6 @@ print <<"EOF";
 <FONT color="#000000">の地下</FONT> 
 <input type="text" name="kai" value="$Kkey" size="5">
 EOF
-for($i = $Kkey ; $i>=1; $i--) {
-print "<option value=$i>$i\n";
-}
 print <<"EOF";
 </SELECT>
 <FONT color="#000000">Fに </FONT>
@@ -554,15 +551,7 @@ print <<"EOF";
 <FONT color="#000000">の地下 </FONT>
 <input type="text" name="kai" value="$Ikai" size="5">
 EOF
-for($i = $Kkey ; $i>=1; $i--) {
-if($Ikai == $i) {
-$sel = 'SELECTED';
-}
-else {
-$sel = '';
-}
-print "<option value=$i $sel>$i\n";
-}
+
 print <<"EOF";
 </SELECT>
 <FONT color="#000000">Fに</FONT> 

@@ -48,8 +48,7 @@ print FH $NEWWAZA;
 close(FH);
 &unlock;
 
-if($Khai[$haigou1] >= $Khai[$haigou2]){$NEWhai = $Khai[$haigou1];}
-if($Khai[$haigou1] <  $Khai[$haigou2]){$NEWhai = $Khai[$haigou2];}
+$NEWhai = $Khai[$haigou1] + $Khai[$haigou2];
 $NEWhai++;
 
 for($A=1;$A<11;$A++){
