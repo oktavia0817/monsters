@@ -11,36 +11,47 @@ $type  = $FORM{'type'};
 if($type == 1){
 	$kname = "スライム系";
 	@no = (1..20);
+	$back = "back1.png"
 } elsif ($type == 2){
 	$kname = "ドラゴン系";
 	@no = (21..45);
+	$back = "back2.png"
 } elsif ($type == 3){
 	$kname = "けもの系";
 	@no = (46..70);
+	$back = "back3.png"
 } elsif ($type == 4){
 	$kname = "とり系";
 	@no = (71..90);
+	$back = "back4.png"
 } elsif ($type == 5){
 	$kname = "しょくぶつ系";
 	@no = (91..110);
+	$back = "back5.png"
 } elsif ($type == 6){
 	$kname = "むし系";
 	@no = (111..130);
+	$back = "back6.png"
 } elsif ($type == 7){
 	$kname = "あくま系";
 	@no = (131..155);
+	$back = "back7.png"
 } elsif ($type == 8){
 	$kname = "ゾンビ系";
 	@no = (156..175);
+	$back = "back8.png"
 } elsif ($type == 9){
 	$kname = "ぶっしつ系";
 	@no = (176..200);
+	$back = "back9.png"
 } elsif ($type == 10){
 	$kname = "？？？系";
 	@no = (201..215);
+	$back = "back10.png"
 } elsif ($type == 11){
 	$kname = "？？？系2";
 	@no = (216..248);
+	$back = "back11.png"
 }
 
 
@@ -105,33 +116,45 @@ print <<"EOF";
 [<a href="./monster.cgi?mode=zukan&name=$inname&type=10"><b>？？？系</b></a>]
 [<a href="./monster.cgi?mode=zukan&name=$inname&type=11"><b>？？？系その2</b></a>]
 <br><br>
-<table cellspacing="0" cellpadding="0" border="0" bgcolor="#000000" width="60%">
+<table cellspacing="0" cellpadding="0" border="0" width="60%">
 	<tr>
-		<td colspan="5" align="center"><font color="white"><b>$kname</b></font>
+		<td colspan="5" align="center"><font color="white" size="5"><b>$kname</b></font>
 		</td>
 	</tr>
-	<tr>
+	<tr><td><br></td></tr>
+
 EOF
 for ($i=0;$i<$noleng;$i++) {
+	print <<"EOF";
+	<td>
+		<table width="200">
+			<tr>
+				<td align="center" bgcolor="black" width="20%"><font color="white"><b>$mno[$i]</b></font>
+				</td>
+			</tr>
+EOF
 	if($zukan[$no[$i]]==1){
 		print <<"EOF";
-		 <td align="center"  bgcolor="#ffffff" width="20%" height="150" valign="bottom"><img src="$imgpath/$mimg[$i].gif"><br>
+			<tr>
+				<td align="center"  background="$imgpath/$back" width="20%" height="150" valign="bottom"><img src="$imgpath/$mimg[$i].gif"><br>
+				</td>
+			</tr>
 EOF
 	} else {
 		print <<"EOF";
-		 <td align="center"  bgcolor="#ffffff" width="20%" height="150" valign="bottom">？？？<br>
+			<tr>
+				<td align="center"  bgcolor="#ffffff" width="20%" height="150" valign="bottom">？？？<br>
+				</td>
+			</tr>
 EOF
 	}
 print <<"EOF";
-			<table width="100%">
-				<tr>
-				<td align="center" bgcolor="black" width="20%"><font color="white"><b>$mno[$i]</b></font>
-				</td>
+			<tr>
 				<td align="center" bgcolor="black"><font color="white"><b>$mname[$i]</b></font>
 				</td>
-				<tr>
-			</table>
-		</td>
+			</tr>
+		</table>
+	</td>
 EOF
 	$x = ($i+1) % 5;
 	if($x==0){
@@ -140,7 +163,6 @@ EOF
 	}
 }
 print <<"EOF";
-	</tr>
 </tr>
 </table>
 EOF
