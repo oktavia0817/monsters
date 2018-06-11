@@ -23,6 +23,9 @@ open(FH,"$monsdata") || &error("Can't open $monsdata");
 @lines = <FH>;
 close(FH);
 
+$mlength = @lines;
+
+
 foreach $line (@lines) {
     ($Mimg,$Mcname,$Mkou,$Mmam,$Msub,$Mhp,$Mmp,$Mex,$Mmoney,$Mtoku,$pp) = split(/<>/,$line);
     if($Mimg == $hensin){
@@ -47,6 +50,30 @@ open(FH, ">waza/$inname.cgi") || &error("Can't open!");
 print FH $NEWWAZA;
 close(FH);
 &unlock;
+
+
+open(FH,"zukan/$inname.cgi") || &error("Can't open 図鑑");
+@lines = <FH>;
+close(FH);
+
+foreach $line (@lines) {
+   @zukan = split(/<>/,$line);
+}
+
+
+$zukan[$Nimg] = "1";
+$nzukan = "0<>";
+
+for($i=1;$i<=$mlength;$i++){
+	$nzukan .= "$zukan[$i]<>";
+}
+
+&lock;
+open(FH, ">zukan/$inname.cgi") || &error("Can't open open 図鑑");
+print FH $nzukan;
+close(FH);
+&unlock;
+
 
 $NEWhai = $Khai[$haigou1] + $Khai[$haigou2];
 $NEWhai++;

@@ -148,6 +148,40 @@ foreach $line5 (@keyset1) {
    ($fusi[1],$fusi[2],$fusi[3],$fusi[4],$fusi[5],$fusi[6],$fusi[7],$fusi[8],$fusi[9],$fusi[10])=split(/<>/,$line5);
 }
 
+
+open(FH,"$monsdata");
+@lines99 = <FH>;
+close(FH);
+
+ $mleng = @lines99;
+
+open(FH,"zukan/$inname.cgi") || goto Label0;
+@lines98 = <FH>;
+close(FH);
+goto Label1;
+
+Label0:
+&lock;
+open(FH,">>zukan/$inname.cgi");
+print FH "0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>";
+close(FH);
+&unlock;
+
+Label1:
+foreach $line (@lines98) {
+   @zukan = split(/<>/,$line);
+}
+
+
+ $get = 0;
+	for($i=1;$i<=$mleng;$i++){
+		if($zukan[$i]==1){
+			$get += 1;
+		}
+	}
+
+  $s = sprintf('%.2f', $get / $mleng * 100);
+
 &header;
 
 print <<"EOF";
@@ -162,11 +196,10 @@ print <<"EOF";
 </TR>
 </TBODY>
 </TABLE>
-<FORM ACTION="$cgiurl" METHOD="POST">
 <TABLE border="0" width="700" bgcolor="black">
 <TBODY>
 <TR>
-<TD colspan="5" align="center"><font color="white" size="4"><b>$namelog</b></font></TD>
+<TD colspan="6" align="center"><font color="white" size="4"><b>$namelog</b></font></TD>
 </TR>
 <TR>
 <TD align="center" bgcolor="#00cccc">所持金</TD>
@@ -174,13 +207,25 @@ print <<"EOF";
 <TD align="center" bgcolor="#00cccc">ランク</TD>
 <TD align="center" bgcolor="#00cccc">メダル</TD>
 <TD align="center" width="338" bgcolor="#00cccc">コメント</TD>
-</TR>
 <TR>
 <TD align="center" bgcolor="#ffffff">$Kmoney ゴールド</TD>
 <TD align="center" bgcolor="#ffffff">地下$Kkey 階</TD>
 <TD align="center" bgcolor="#ffffff">$Krank 位</TD>
 <TD align="center" bgcolor="#ffffff">$Kdummy 個</TD>
 <TD align="left" width="338" bgcolor="#ffffff">$Kmes</TD>
+</TR>
+<TR>
+<TD align="center" bgcolor="#00cccc">
+[<a href="./monster.cgi?mode=zukan&name=$inname&type=1"><b>魔物図鑑</b></a>]
+</TD>
+</TR>
+<TR>
+<TD align="center" bgcolor="white">
+<FONT color="black">$get ／$mleng 匹（$s ％）
+</TD>
+</TR>
+</FORM>
+<FORM ACTION="$cgiurl" METHOD="POST">
 </TR>
 </TBODY>
 </TABLE>
