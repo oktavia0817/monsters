@@ -857,10 +857,14 @@ $Acname[2] = "$Acname[2] A";
 $Acname[3] = "$Acname[3] B";
 }
 
+#@back = (1..11);
+#$backl = $back[int(rand(11))];
+#$backimg = "back$backl.png";
+
 &header;
 
 print <<"EOF";
-<BODY bgcolor="#000000">
+<BODY>
 <P align="center"><BR>
 <FONT color="#FF0000" size="+2"><B>モンスターが$monsuu 体現れた！</B></FONT></P>
 <CENTER>
@@ -929,7 +933,7 @@ print <<"EOF";
 <td>
 <table>
 	<tr>
-		<TD bgcolor=#ffffff colspan=2 align=center height="150px"><IMG src="$imgpath/$Kimg[$x].gif" border=0><BR>$itemlist[${Kimg.$x}]</TD>
+		<TD colspan=2 align=center height="150px" valign="bottom"><IMG src="$imgpath/$Kimg[$x].gif" border=0><BR><font  color="white">$itemlist[${Kimg.$x}]</font></TD>
 	</tr>
 	<tr>
 		$TD2<B>レベル</B></FONT></TD>
@@ -1024,7 +1028,7 @@ EOF
 print <<"EOF";
 </TR>
 <TR>
-<TD colspan="7" bgcolor="#ffffff" align="center">
+<TD colspan="7" align="center">
 <BR>
 <INPUT type="submit" name="monok" value="決定">
 <INPUT type="hidden" name="mode" value="check">
