@@ -64,7 +64,7 @@ print <<"EOF";
 <td>
 <table>
 	<tr>
-		<TD bgcolor=#ffffff colspan=2 align=center height="150px"><IMG src="$imgpath/${Kimg.$x}.gif" border=0><BR>$itemlist[${Kimg.$x}]</TD>
+		<TD colspan=2 align=center height="150px"><IMG src="$imgpath/${Kimg.$x}.gif" border=0><BR>$itemlist[${Kimg.$x}]</TD>
 	</tr>
 	<tr>
 		$TD2<B>レベル</B></FONT></TD>
