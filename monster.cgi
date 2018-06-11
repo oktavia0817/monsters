@@ -32,6 +32,7 @@ if ($match) {&error("あなたのIPアドレスはアクセス制限にかかっ
 
 &decode;
 
+
 $emes = '不正なアクセスです';
 
 if ($ENV{'REQUEST_METHOD'} ne "POST") {
@@ -141,6 +142,7 @@ elsif($FORM{'mode'} eq "books")    {  &books;}
 elsif($FORM{'mode'} eq "readbook") {  &readbook;}
 elsif($FORM{'mode'} eq "delete1")  {  &delete1;}
 elsif($FORM{'mode'} eq "delete2")  {  &delete2;}
+elsif($FORM{'mode'} eq "zukan")    {  &zukan;}
 
 #=============#
 #  START画面  #
@@ -896,6 +898,15 @@ require './cgi/sinki.cgi';
 
 }
 
+#================#
+#  魔物図鑑      #
+#================#
+
+sub zukan {
+
+require './cgi/zukan.cgi';
+
+}
 
 #====================#
 #  メダル杯初期時間  #

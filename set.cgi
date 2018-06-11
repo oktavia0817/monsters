@@ -31,9 +31,9 @@ $lockfile = './mons.lock';
 # データ格納フォルダ（適当な名前を付けてください）
 $datadir = 'mons';
 # マスターネーム
-$mastername = 'vipstar';
+$mastername = 'nezirin';
 # マスターパスワード
-$masterpassword = 'vipstar1234';
+$masterpassword = 'eclipse';
 # ＣＧＩへのパス
 # http://127.0.0.1/~mikio/monsters/monster.cgiの場合は
 # http://127.0.0.1/~mikio/monstersにしてください

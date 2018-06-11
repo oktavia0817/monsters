@@ -662,7 +662,7 @@ print <<"EOF";
 <SELECT name=MONNAME>
 <option value="no">選択してください
 EOF
-for($i=1;$i<216;$i++){
+for($i=1;$i<249;$i++){
 print "<option value=$i >$itemlist[$i]\n";
 }
 print <<"EOF";
@@ -673,8 +673,8 @@ print <<"EOF";
 <SELECT name=SEX>
 <option value="no">選択してください
 EOF
-print "<option value=1 >♂\n";
-print "<option value=2 >♀\n";
+print "<option value=1 >陰\n";
+print "<option value=2 >陽\n";
 print <<"EOF";
 </SELECT>
 <BR>
