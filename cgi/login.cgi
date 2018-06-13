@@ -4,7 +4,7 @@ use open ":std";
 
 
 sub hai {
-	for($i=1;$i<=10;$i++){
+	for($i=1;$i<=$Ssu;$i++){
 		if($Klev[$i] >= $haigoulevel){
 			print "<option value=$i >0$i: $itemlist[${P.$i}] $seibetu[$Ksex[$i]] LV-$Klev[$i] 配合$Khai[$i]回</OPTION>\n";
 		}
@@ -12,7 +12,7 @@ sub hai {
 }
 
 sub hai2 {
-	for($i=1;$i<=10;$i++){
+	for($i=1;$i<=$Ssu;$i++){
 		if($Klev[$i] == 1){
 			$ryoukin = $Khai[$i] * 100;
 			if($ryoukin >= 99999){$ryoukin = 99999;}
@@ -79,56 +79,24 @@ if(!$login){ &error("あなたは未登録かパスワードエラーです！")
 
 &open1;
 
-$Slev[1] = $Klev[1];
-
 for($A=1;$A<11;$A++){
-if($Kimg[$A] != 0){$Ssu++;}
-if($Khp[$A]  != 0){$SSsu++;}
+	$Slev[$A] = $Klev[$A];
+	if($Kimg[$A] != 0){
+		${P.$A} = $Kimg[$A];
+		$Ssu++;
+	}
+	if($Kmhp[$A] != 0 && $Khp[$A] != 0){
+		$yado = $yado + $Kmhp[$A]-$Khp[$A] + $Kmmp[$A]-$Kmp[$A];
+	}
+	if($Kmhp[$A] != 0 && $Khp[$A] == 0){
+		$kyoukai = $kyoukai + $Kmhp[$A] + $Kmmp[$A];
+	}
 }
-$P1       = $Kimg[1];
-$P2       = $Kimg[2];
-$P3       = $Kimg[3];
-$P4       = $Kimg[4];
-$P5       = $Kimg[5];
-$P6       = $Kimg[6];
-$P7       = $Kimg[7];
-$P8       = $Kimg[8];
-$P9       = $Kimg[9];
-$P10       = $Kimg[10];
 
-for($im=2;$im<11;$im++){
-$Slev[$im] = $Klev[$im];
-if($Kimg[$im]==0){
-$Klev[$im] = '-';
-$KKlev[$im] = 0;
-$Kmlev[$im] = '-';
-$Khp[$im] = '-';
-$Kmhp[$im] = '-';
-$Kmp[$im] = '-';
-$Kmmp[$im] = '-';
-$Kkou[$im] = '-';
-$Kmam[$im] = '-';
-$Ksub[$im] = '-';
-$Khai[$im] = '-';
-$Kcount[$im] = '-';
-$Knecount[$im] = '-';
-$Ksex[$im] = '-';
-$Ksei[$im] = '-';
-}
-}
-for($Y=1;$Y<11;$Y++){
-if($Kmhp[$Y] != 0 && $Khp[$Y] != 0){
-$yado = $yado + $Kmhp[$Y]-$Khp[$Y] + $Kmmp[$Y]-$Kmp[$Y];
-}
-}
+
 $yadoya = $yado;
 if($yadoya >= 99999){$yadoya = 99999;}
 
-for($Y=1;$Y<11;$Y++){
-if($Kmhp[$Y] != 0 && $Khp[$Y] == 0){
-$kyoukai = $kyoukai + $Kmhp[$Y] + $Kmmp[$Y];
-}
-}
 $kyoukai = $kyoukai * 2;
 if($kyoukai eq ""){$kyoukai = 0;}
 if($kyoukai >= 99999){$kyoukai = 99999;}
@@ -136,16 +104,16 @@ if($kyoukai >= 99999){$kyoukai = 99999;}
 $haigoudai = $Khaigou * $Mmoney;
 if($haigoudai >= 99999) { $haigoudai = 99999;}
 
-$namelog = "$KnameさんのLOGINメニュー";
+$namelog = "$Kname\さんのLOGINメニュー";
 if($type == 1){
-$namelog = "$KnameさんのLOGIN内容";
+	$namelog = "$Kname\さんのLOGIN内容";
 }
 
 open(FH,"keyset/$inname.cgi");
 @keyset1 = <FH>;
 close(FH);
 foreach $line5 (@keyset1) {
-   ($fusi[1],$fusi[2],$fusi[3],$fusi[4],$fusi[5],$fusi[6],$fusi[7],$fusi[8],$fusi[9],$fusi[10])=split(/<>/,$line5);
+   @fusi = split(/<>/,$line5);
 }
 
 
@@ -163,7 +131,7 @@ goto Label1;
 Label0:
 &lock;
 open(FH,">>zukan/$inname.cgi");
-print FH "0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>0<>";
+print FH "0<>" x 300;
 close(FH);
 &unlock;
 
@@ -173,11 +141,8 @@ foreach $line (@lines98) {
 }
 
 
- $get = 0;
 	for($i=1;$i<=$mleng;$i++){
-		if($zukan[$i]==1){
-			$get += 1;
-		}
+		if($zukan[$i]==1){$get ++;}
 	}
 
   $s = sprintf('%.2f', $get / $mleng * 100);
@@ -248,58 +213,42 @@ print <<"EOF";
 UP経験値</TD>
 </TR>
 EOF
-for($g=1;$g<11;$g++){
-if($g >= 1 && $g <= 3) { $col = 'yellow';}
-if($g >= 4 && $g <= 10){ $col = '#ffffff';}
-print <<"EOF";
-<TR>
-<TD align="center" bgcolor="$col">
-EOF
-if($Ssu >= 1 && $type == 1){
-print <<"EOF";
-$g
-EOF
-}
 
-if($Kimg[$g] != 0 && $Ssu >= 1 && $type != 1){
-	$tex ="";
-	for ($i=1;$i<=10;$i++) {
-		for ($x=1;$x<=$i;$x++) {
-			if($Ssu == $i && $g == $x){
-				$tex = "<SELECT name=cname$x>\n";
-				for ($n=1;$n<=$i;$n++) {
-					if($x==$n) {
-						$tex .= "<option value=$n SELECTED>$n</option>\n";
-					} else {
-						$tex .= "<option value=$n>$n</option>\n";
-					}
-				}
-				$tex .= "</SELECT>\n";
-			}
+for($g=1;$g<=$Ssu;$g++){
+	if($g >= 1 && $g <= 3) { $col = 'yellow';}
+	if($g >= 4 && $g <= 10){ $col = '#ffffff';}
+	$tex .= <<"EOF";
+	<TR>
+	<TD align="center" bgcolor="$col">
+EOF
+
+	$tex .= "<SELECT name=cname$g>\n";
+	for ($n=1;$n<=$Ssu;$n++) {
+		if($g==$n) {
+			$tex .= "<option value=$n SELECTED>$n</option>\n";
+		} else {
+			$tex .= "<option value=$n>$n</option>\n";
 		}
 	}
-	print $tex;
-}
+	$tex .= "</SELECT>\n";
 
-print <<"EOF";
-</TD>
-<TD align="center" bgcolor="#ffffff"><IMG src="$imgpath/$Kimg[$g].gif" border="0" bgcolor="#ffffff"><BR>$itemlist[$Kimg[$g]] - 
- $seibetu[$Ksex[$g]]<BR>【$seikaku[$Ksei[$g]]】</TD>
-<TD align="center" bgcolor="$col">$Khai[$g]回</TD>
-<TD align="center" bgcolor="$col">$Klev[$g]<BR>
-$Kmlev[$g]</TD>
-<TD align="center" bgcolor="$col">$Khp[$g]<BR>
-$Kmhp[$g]</TD>
-<TD align="center" bgcolor="$col">$Kmp[$g]<BR>
-$Kmmp[$g]</TD>
-<TD align="center" bgcolor="$col">$Kkou[$g]</TD>
-<TD align="center" bgcolor="$col">$Kmam[$g]</TD>
-<TD align="center" bgcolor="$col">$Ksub[$g]</TD>
-<TD align="center" bgcolor="$col">$Kcount[$g]<BR>
-$Knecount[$g]</TD>
-</TR>
+	$tex .= <<"EOF";
+	</TD>
+	<TD align="center" bgcolor="#ffffff"><IMG src="$imgpath/$Kimg[$g].gif" border="0" bgcolor="#ffffff"><BR>$itemlist[$Kimg[$g]] - 
+	 $seibetu[$Ksex[$g]]<BR>【$seikaku[$Ksei[$g]]】</TD>
+	<TD align="center" bgcolor="$col">$Khai[$g]回</TD>
+	<TD align="center" bgcolor="$col">$Klev[$g]<BR>$Kmlev[$g]</TD>
+	<TD align="center" bgcolor="$col">$Khp[$g]<BR>$Kmhp[$g]</TD>
+	<TD align="center" bgcolor="$col">$Kmp[$g]<BR>$Kmmp[$g]</TD>
+	<TD align="center" bgcolor="$col">$Kkou[$g]</TD>
+	<TD align="center" bgcolor="$col">$Kmam[$g]</TD>
+	<TD align="center" bgcolor="$col">$Ksub[$g]</TD>
+	<TD align="center" bgcolor="$col">$Kcount[$g]<BR>$Knecount[$g]</TD>
+	</TR>
 EOF
 }
+	print $tex;
+
 print <<"EOF";
 <TR>
 <TD align="center" colspan="4">
